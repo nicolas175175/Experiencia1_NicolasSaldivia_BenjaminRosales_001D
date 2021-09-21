@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaulHref="/"
+        text="Volver"
+      color="primary"
+      mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+  <ion-list-header>
+    <ion-label>Formulario Válido: {{formulario.valid}} </ion-label>
+  </ion-list-header>
+  
+  <ion-item>
+    <ion-label position="floating">Email: </ion-label>
+    <ion-input type="email" placeholder="Email"
+               name="email" [(ngModel)]= "usuario.email"
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+               required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password: </ion-label>
+    <ion-input type="password" placeholder="Contraseña"
+               name="password" [(ngModel)]= "usuario.password"
+               required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nombres: </ion-label>
+    <ion-input type="name" placeholder="nombre"
+               name="nombre" [(ngModel)]= "usuario.name"
+               required>
+    </ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Apellidos: </ion-label>
+    <ion-input type="apellido" placeholder="apellido"
+               name="apellido" [(ngModel)]= "usuario.apellido"
+               required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Numero: </ion-label>
+    <ion-input type="number" placeholder="numero"
+               name="numero" [(ngModel)]= "usuario.numero"
+               required>
+    </ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label>Genero</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="f">Mujer</ion-select-option>
+      <ion-select-option value="m">Hombre</ion-select-option>
+      <ion-select-option value="n">No definido</ion-select-option >
+    </ion-select>
+  </ion-item>
+  <ion-button [disabled] ="formulario.invalid"
+            type="submit" expand="block" routerLink="/inicio">
+      Registro Gamer
+    </ion-button>
+
+</form>
+</ion-content>

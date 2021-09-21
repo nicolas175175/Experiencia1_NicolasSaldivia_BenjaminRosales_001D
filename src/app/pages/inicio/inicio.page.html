@@ -1,0 +1,25 @@
+<ion-header class="ion-padding">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline"></ion-icon>
+        
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+     <ion-avatar>
+       <ion-img src="/assets/LOGO.jpg"></ion-img>
+     </ion-avatar>
+    </ion-buttons>
+    <ion-title>inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content clas="ion-padding">
+  <ion-item *ngFor="let c of componentes"
+              [routerLink]= "c.redirecTo" 
+              detail="true">
+              <ion-icon [name]="c.icon" slot="start" name="add"></ion-icon>
+      {{c.name}}
+</ion-item>
+</ion-content>
